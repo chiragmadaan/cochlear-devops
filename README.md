@@ -7,7 +7,7 @@ Actually, there are two separated apps. The Client which serves the FrontEnd (us
 
 
 ## Check if they are connected
-1. With the two apps running, open your browser in http://localhost:3000/.
+1. With the two apps running, in your browser open http://localhost:3000/.
 2. If you see a webpage saying `Welcome to React`, it means the FrontEnd is working.
 3. If the same webpage has the phrase `API is working properly`, it means the API is working.
 
