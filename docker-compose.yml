@@ -4,6 +4,8 @@ services:
     build: ./api
     ports:
       - "9000:9000"
+    environment:
+      - PORT=9000
     networks:
       - cochlear
   
@@ -11,6 +13,8 @@ services:
     build: ./client
     ports:
       - "3000:3000"
+    environment:
+      - PORT=3000
     depends_on:
       - api
     networks:
