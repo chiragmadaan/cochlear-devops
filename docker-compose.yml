@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   api:
     build: ./api
@@ -6,8 +6,6 @@ services:
       - "9000:9000"
     environment:
       - PORT=9000
-    networks:
-      - cochlear
   
   client:
     build: ./client
@@ -17,8 +15,3 @@ services:
       - PORT=3000
     depends_on:
       - api
-    networks:
-      - cochlear
-
-networks:
-  cochlear:
