@@ -24,10 +24,15 @@ resource "aws_ecr_repository" "ecr" {
   }
 }
 
+variable "cochlear_aws_account_id" {
+  description = "10 digit AWS account ID of the secondary account that requires access permission"
+  type        = number
+}
+
 resource "aws_ecr_repository_policy" "cochlear_policy" {
   repository = aws_ecr_repository.ecr.name
 
-  policy = <<EOF
+  policy     = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -35,7 +40,7 @@ resource "aws_ecr_repository_policy" "cochlear_policy" {
             "Sid": "Cochlear Policy",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::cochlear-aws-account-id:root"
+                "AWS": "arn:aws:iam::${var.cochlear_aws_account_id}:root"
             },
             "Action": [
                 "ecr:GetAuthorizationToken",
