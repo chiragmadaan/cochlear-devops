@@ -21,3 +21,8 @@ Actually, there are two separated apps. The Client which serves the FrontEnd (us
 1. `api/Dockerfile` uses the base node image, installs the dependencies, exposes the port 9000, copies all the required files, and then starts the backend service.
 2. `client/Dockerfile` uses the base node image, installs the dependencies, exposes the port 3000, copies all the required files, and then starts the frontend service.
 3. `./docker-compose.yml` builds the backend service, frontend service, and a new common network for communication.
+
+
+## ECR + Terraform
+Terraform code is in `main.tf`. For security, the AWS account numbers have been replaced by generic placehold text.
+1. The command to login to ECR from the Cochlear AWS account is `aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin chirag-account-id.dkr.ecr.ap-southeast-2.amazonaws.com`
