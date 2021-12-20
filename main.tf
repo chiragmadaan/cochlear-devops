@@ -35,9 +35,10 @@ resource "aws_ecr_repository_policy" "cochlear_policy" {
             "Sid": "Cochlear Policy",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::cochlear-account-id:root"
+                "AWS": "arn:aws:iam::cochlear-aws-account-id:root"
             },
             "Action": [
+                "ecr:GetAuthorizationToken",
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",
                 "ecr:BatchCheckLayerAvailability",
